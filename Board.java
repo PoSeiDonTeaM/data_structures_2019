@@ -28,6 +28,23 @@ public Board(Board b)
 	
 }
 
+public Snake[] getSnakesMatrix()
+{
+	return snakes;
+}
+
+public Ladder[] getLaddersMatrix()
+{
+	return ladders;
+}
+
+public Apple[] getApplesMatrix()
+{
+	return apples;
+}
+
+
+
 void createBoard()
 {
 	
