@@ -28,6 +28,7 @@ public Board(Board b)
 	
 }
 
+//Getters
 public Snake[] getSnakesMatrix()
 {
 	return snakes;
@@ -43,6 +44,7 @@ public Apple[] getApplesMatrix()
 	return apples;
 }
 
+//Setters
 public void setApplesMatrix(Apple[] a) {
 	   apples = a;
 	}
@@ -55,18 +57,19 @@ public void setSnakesMatrix(Snake[] s) {
 	snakes = s;
 }
 
+
 void createBoard()
 {
-	
+	/* Inserting values of Snake Object at random IDs*/
 	for(int i=0; i<snakes.length; i++)
 	{
 		do {
 			
 			snakes[i].setSnakeId(i);
-			snakes[i].setHeadId((int)(Math.random() * (N*M) + 1));
+			snakes[i].setHeadId((int)(Math.random() * (N*M) + 1)); // (N*M) + 1 means that our range will be 1 ~ (N*M)
 			snakes[i].setTailId((int)(Math.random() * (N*M) + 1));
 			
-		}while(snakes[i].getHeadId() > snakes[i].getTailId());
+		}while(snakes[i].getHeadId() > snakes[i].getTailId()); // Ensuring that the head of the snake is above of the tail.
 	}
 	
 	for(int i=0; i<ladders.length; i++)
@@ -82,16 +85,11 @@ void createBoard()
 	
 	for(int i=0; i<apples.length; i++)
 	{
-		/*do {
-			apples[i].setAppleId(i);
-			apples[i].setAppleTileId((int)(Math.random()* (N*M) + 1));
-		}while(apples[i].getAppleTileId() != snakes[i].getHeadId());
-		*/
 		
 		apples[i].setAppleId(i);
 		apples[i].setAppleTileId((int)(Math.random()* (N*M) + 1));
 		
-		while(containSnakeHead(apples[i].getAppleTileId()) == false);
+		while(containSnakeHead(apples[i].getAppleTileId()) == false); // Using this function we make sure that there is no head of a snake on this tile.
 	}
 }
 
