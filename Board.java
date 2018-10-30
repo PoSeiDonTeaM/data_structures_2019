@@ -43,7 +43,17 @@ public Apple[] getApplesMatrix()
 	return apples;
 }
 
+public void setApplesMatrix(Apple[] a) {
+	   apples = a;
+	}
 
+public void setLaddersMatrix(Ladder[] l) {
+	ladders = l;
+}
+
+public void setSnakesMatrix(Snake[] s) {
+	snakes = s;
+}
 
 void createBoard()
 {
