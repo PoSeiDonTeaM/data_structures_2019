@@ -68,6 +68,80 @@ void createBoard()
 	}
 }
 
+public void createElementBoard() {
+	String[][] elementBoardSnakes = new String[N][M];
+	String[][] elementBoardLadders = new String[N][M];
+	String[][] elementBoardApples = new String[N][M];
+	
+	for(int i=1; i < N+1; i++)
+	{
+		for(int j=1; j < M+1; j++)
+		{
+			
+			for(int k=0; k < snakes.length; k++)
+			{
+				if(snakes[k].getHeadId() == i*j)
+				{
+					elementBoardSnakes[i][j] = "SH" + snakes[k].snakeId;
+				}
+				
+				else if(snakes[k].getTailId() == i*j)
+				{
+					elementBoardSnakes[i][j] = "ST" + snakes[k].snakeId;
+				}
+				
+				else
+				{
+					elementBoardSnakes[i][j] = "___";
+				}
+			}
+			
+			for(int k=0; k < ladders.length; k++)
+			{
+				if(ladders[k].getUpStepId() == i*j)
+				{
+					elementBoardLadders[i][j] = "LU" + ladders[k].ladderId;
+				}
+				
+				else if(ladders[k].getDownStepId() == i*j)
+				{
+					elementBoardLadders[i][j] = "LD" + ladders[k].ladderId;
+				}
+				
+				else
+				{
+					elementBoardLadders[i][j] = "___";
+				}
+			
+			}
+			
+			
+			for(int k=0; k < apples.length; k++)
+			{
+				
+				if(apples[k].getAppleTileId() == i*j)
+				{
+					if(apples[k].getColor() == "red")
+					{
+						elementBoardApples[i][j] = "AR" + apples[k].getAppleId();
+					}
+					else if(apples[k].getColor() == "black")
+					{
+						elementBoardApples[i][j] = "AB" + apples[k].getAppleId();
+					}
+				}
+				else
+				{
+						elementBoardApples[i][j] = "___";
+				}
+				
+			}
+			
+		}
+	}
+		
+}
+
 public boolean containSnakeHead(int c)
 {
 	int flag=0;
