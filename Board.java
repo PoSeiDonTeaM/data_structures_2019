@@ -78,6 +78,7 @@ void createBoard()
 	/* Inserting values of Snake Object at random IDs*/
 	for(int i=0; i<snakes.length; i++)
 	{
+		snakes[i] = new Snake();
 		do {
 			
 			snakes[i].setSnakeId(i);
@@ -89,6 +90,8 @@ void createBoard()
 	
 	for(int i=0; i<ladders.length; i++)
 	{
+		
+		ladders[i] = new Ladder();
 		do {
 			
 			ladders[i].setLadderId(i);
@@ -100,7 +103,7 @@ void createBoard()
 	
 	for(int i=0; i<apples.length; i++)
 	{
-		
+		apples[i] = new Apple();
 		apples[i].setAppleId(i);
 		apples[i].setAppleTileId((int)(Math.random()* (N*M) + 1));
 		
