@@ -9,7 +9,7 @@ public class Apple {
 	public Apple() {
 		appleId = 0;
 		appleTileId = 0;
-		points = 0;
+		points = 10;
 	}
 	
 	// Getters

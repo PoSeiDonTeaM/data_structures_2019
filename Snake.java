@@ -11,6 +11,7 @@ public class Snake {
 		tailId = 0;
 	}
 	
+	
 	public int getSnakeId()
 	{
 		return snakeId;

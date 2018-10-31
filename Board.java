@@ -29,32 +29,47 @@ public Board(Board b)
 }
 
 //Getters
-public Snake[] getSnakesMatrix()
+public Snake getSnakesMatrix(int s)
 {
-	return snakes;
+	return snakes[s];
 }
 
-public Ladder[] getLaddersMatrix()
+public int getSnakesMatrixLength()
 {
-	return ladders;
+	return snakes.length;
 }
 
-public Apple[] getApplesMatrix()
+public Ladder getLaddersMatrix(int l)
 {
-	return apples;
+	return ladders[l];
+}
+
+public int getLaddersMatrixLength()
+{
+	return ladders.length;
+}
+
+public Apple getApplesMatrix(int a)
+{
+	return apples[a];
+}
+
+public int getApplesMatrixLength()
+{
+	return apples.length;
 }
 
 //Setters
-public void setApplesMatrix(Apple[] a) {
-	   apples = a;
+public void setApplesMatrix(Apple a, int aPos) {
+	   apples[aPos] = a;
 	}
 
-public void setLaddersMatrix(Ladder[] l) {
-	ladders = l;
+public void setLaddersMatrix(Ladder l, int lPos) {
+	ladders[lPos] = l;
 }
 
-public void setSnakesMatrix(Snake[] s) {
-	snakes = s;
+public void setSnakesMatrix(Snake s, int sPos) {
+	snakes[sPos] = s;
 }
 
 
@@ -167,6 +182,7 @@ public void createElementBoard() {
 		
 }
 
+
 public boolean containSnakeHead(int c)
 {
 	int flag=0;
@@ -188,6 +204,52 @@ public boolean containSnakeHead(int c)
 	}
 	
 }	
+
+public boolean containUpperStep(int c)
+{
+	int flag=0;
+	
+	for(int i=0; i<ladders.length; i++)
+	{
+		if(c == ladders[i].getUpStepId())
+		{
+			flag ++;
+		}
+	
+	}
+	
+	if(flag != 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+	
+}	
+
+public boolean containApple(int c)
+{
+	int flag=0;
+	
+	for(int i=0; i<apples.length; i++)
+	{
+		if(c == apples[i].getAppleTileId())
+		{
+			flag ++;
+		}
+	
+	}
+	
+	if(flag != 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+	
+}	
+
+
 
 
 }
